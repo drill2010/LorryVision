@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/pref_group_general"
+        android:key="pref_key_group_general">
+
+        <ListPreference
+            android:key="pref_key_language"
+            android:summary="@string/pref_group_general_language_summary"
+            android:title="@string/pref_group_general_language_title"
+            android:defaultValue="eng"
+            android:entries="@array/language_list"
+            android:entryValues="@array/language_list_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_group_wifi"
+        android:key="pref_key_group_wifi">
+
+        <CheckBoxPreference
+            android:key="pref_key_autoconnect"
+            android:summary="@string/pref_group_wifi_autoconnect_summary"
+            android:title="@string/pref_group_wifi_autoconnect_title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="pref_key_autoupdate"
+            android:summary="@string/pref_group_wifi_autoupdate_summary"
+            android:title="@string/pref_group_wifi_autoupdate_title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="pref_key_display_general"
+            android:summary="@string/pref_group_wifi_display_general_summary"
+            android:title="@string/pref_group_wifi_display_general_title"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/pref_group_notif"
+        android:key="pref_key_group_notifications">
+
+        <CheckBoxPreference
+            android:key="pref_key_sound"
+            android:summary="@string/pref_group_notif_sound_summary"
+            android:title="@string/pref_group_notif_sound_title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="pref_key_notification_allowed"
+            android:summary="@string/pref_group_notif_netfound_summary"
+            android:title="@string/pref_group_notif_netfound_title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="pref_key_jump"
+            android:summary="@string/pref_group_notif_jump_summary"
+            android:title="@string/pref_group_notif_jump_title"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_part"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="name.marinchenko.lorryvision.activities.main.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_main_toolbar"
+        style="@style/Toolbar" />
+
+    <CheckBox
+        android:id="@+id/netList_checkbox_autoconnect"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp"
+        android:textSize="20sp"
+        android:onClick="onCheckboxAutoConnectClick"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_toolbar"
+        app:layout_constraintEnd_toStartOf="@id/netList_button_updateNets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/netList_listView"
+        android:text="@string/netList_checkbox_autoconnect"  />
+
+    <Button
+        android:id="@+id/netList_button_updateNets"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="onButtonUpdateClick"
+        android:text="@string/netList_button_updateNets"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/netList_checkbox_autoconnect"
+        app:layout_constraintBottom_toTopOf="@id/netList_listView" />
+
+    <ListView
+        android:id="@+id/netList_listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/netList_button_updateNets" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:id="@+id/toolbar_popup"
+        android:title="@string/toolbar_popup"
+        app:showAsAction="never">
+
+        <item android:id="@+id/toolbar_popup_default_settings"
+            android:title="@string/toolbar_popup_default_settings" />
+
+    </group>
+
+</menu>

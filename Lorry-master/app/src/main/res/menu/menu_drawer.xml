@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/drawer_group_home"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_item_home"
+            android:title="@string/drawer_item_home"
+            android:icon="@drawable/ic_action_home" />
+
+    </group>
+
+    <group android:id="@+id/drawer_group_main"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_item_instruction"
+            android:title="@string/drawer_item_instruction"
+            android:icon="@drawable/ic_action_info" />
+
+        <item
+            android:id="@+id/drawer_item_about"
+            android:title="@string/drawer_item_about"
+            android:icon="@drawable/ic_action_help" />
+
+        <item
+            android:id="@+id/drawer_item_license"
+            android:title="@string/drawer_item_license"
+            android:icon="@drawable/ic_action_license" />
+
+        <item
+            android:id="@+id/drawer_item_settings"
+            android:title="@string/drawer_item_settings"
+            android:icon="@drawable/ic_action_settings" />
+
+    </group>
+
+    <group android:id="@+id/drawer_group_help"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_item_website"
+            android:title="@string/drawer_item_website"
+            android:icon="@drawable/ic_action_website" />
+
+        <item
+            android:id="@+id/drawer_item_feedback"
+            android:title="@string/drawer_item_feedback"
+            android:icon="@drawable/ic_action_feedback" />
+
+    </group>
+</menu>
