@@ -60,7 +60,7 @@ public class MainActivity
     private boolean lorriesDetected = false;
     private ConnectDialog connectDialog;
 
-    /*
+    /*******
      * Overridden methods
      */
 
