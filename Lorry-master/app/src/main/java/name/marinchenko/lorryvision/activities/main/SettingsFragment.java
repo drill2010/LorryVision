@@ -29,6 +29,12 @@ public class SettingsFragment
     public final static String PREF_KEY_NOTIFICATION_ALLOWED = "pref_key_notification_allowed";
     public final static String PREF_KEY_JUMP = "pref_key_jump";
 
+    public final static String PREF_KEY_HTTP_STR = "pref_key_HTTP_STR";
+    public final static String PREF_KEY_RTSP_STR = "pref_key_RTSP_STR";
+    public final static String PREF_KEY_LV_PSW   = "pref_key_LV_PSW";
+    public final static String PREF_KEY_CURRENT_PROTOCOL = "pref_key_PROTOCOL";
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

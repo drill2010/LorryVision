@@ -9,8 +9,10 @@ import android.os.Messenger;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,6 +62,7 @@ public class MainActivity
     private boolean lorriesDetected = false;
     private ConnectDialog connectDialog;
 
+    View mLayout;
     /* ++++
      * Overridden methods
      */
@@ -76,7 +79,10 @@ public class MainActivity
         this.messenger = new Messenger(new MainIncomingHandler(this));
         this.netlistAdapter = Initializer.Main.initNetlist(this);
 
+
         Initializer.Main.init(this);
+
+
     }
 
     /**
@@ -101,6 +107,7 @@ public class MainActivity
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d("test_Activity", "Onstart main");
         dismissConnectDialog();
     }
 
