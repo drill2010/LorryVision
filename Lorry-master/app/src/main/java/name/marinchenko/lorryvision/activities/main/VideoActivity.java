@@ -22,7 +22,7 @@ import name.marinchenko.lorryvision.util.net.WifiAgent;
 import static name.marinchenko.lorryvision.services.NetScanService.MSG_DISCONNECTED;
 import static name.marinchenko.lorryvision.services.NetScanService.MSG_RETURN_TO_MAIN;
 
-
+//ffff
 public class VideoActivity extends ToolbarAppCompatActivity {
 
     public static final int JUMP_DELAY = 500;
