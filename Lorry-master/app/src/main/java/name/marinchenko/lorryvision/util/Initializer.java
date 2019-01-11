@@ -111,6 +111,7 @@ public class Initializer {
         public static void init(final MainActivity mainActivity) {
             WifiAgent.enableWifi(mainActivity, true, false);
             mainActivity.initToolbar(
+                    mainActivity,
                     R.id.activity_main_toolbar,
                     R.string.app_name,
                     false
@@ -122,6 +123,7 @@ public class Initializer {
 
         public static void initOnConfigurationChanges(final MainActivity mainActivity) {
             mainActivity.initToolbar(
+                    mainActivity,
                     R.id.activity_main_toolbar,
                     R.string.app_name,
                     false
@@ -222,6 +224,7 @@ public class Initializer {
 
         public static void init(final VideoActivity videoActivity) {
             videoActivity.initToolbar(
+                    videoActivity,
                     R.id.activity_video_toolbar,
                     R.string.activity_video,
                     true
@@ -233,6 +236,7 @@ public class Initializer {
     public static class Instruction {
         public static void init(final InstructionActivity instructionActivity) {
             instructionActivity.initToolbar(
+                    instructionActivity,
                     R.id.activity_instruction_toolbar,
                     R.string.activity_instruction,
                     true
@@ -243,6 +247,7 @@ public class Initializer {
     public static class About {
         public static void init(final AboutActivity aboutActivity) {
             aboutActivity.initToolbar(
+                    aboutActivity,
                     R.id.activity_about_toolbar,
                     R.string.activity_about,
                     true
@@ -253,6 +258,7 @@ public class Initializer {
     public static class License {
         public static void init(final LicenseActivity licenseActivity) {
             licenseActivity.initToolbar(
+                    licenseActivity,
                     R.id.activity_license_toolbar,
                     R.string.activity_license,
                     true
@@ -264,6 +270,7 @@ public class Initializer {
 
         public static void init(final SettingsActivity settingsActivity) {
             settingsActivity.initToolbar(
+                    settingsActivity,
                     R.id.activity_settings_toolbar,
                     R.string.activity_settings,
                     true
@@ -275,6 +282,7 @@ public class Initializer {
     public static class Feedback {
         public static void init(final FeedbackActivity feedbackActivity) {
             feedbackActivity.initToolbar(
+                    feedbackActivity,
                     R.id.activity_feedback_toolbar,
                     R.string.activity_feedback,
                     true

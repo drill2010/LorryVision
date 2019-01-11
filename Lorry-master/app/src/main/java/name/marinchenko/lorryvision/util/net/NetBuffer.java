@@ -151,13 +151,15 @@ public class NetBuffer {
                                      final String ssid) {
         //TODO password generator for lorry networks
         //return NetStore.getPassword(context, ssid);
-        return "1301900703";
+       // return "1301900703";
+        return "Getnetwork";
     }
 
     public static NetType getType(final String name){
         //Matcher matcher = LORRY.matcher(name);
         //return matcher.matches() ? NetType.lorryNetwork : NetType.wifiNetwork;
-        final String pat = "MANSARDA";
+       // final String pat = "MANSARDA";
+        final String pat = "Temp_WIFI";
 
         return name.equals(pat) ? NetType.lorryNetwork : NetType.wifiNetwork;
     }

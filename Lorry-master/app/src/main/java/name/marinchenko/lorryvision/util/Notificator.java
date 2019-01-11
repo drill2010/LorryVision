@@ -31,6 +31,8 @@ import static name.marinchenko.lorryvision.activities.main.SettingsFragment.PREF
 import static name.marinchenko.lorryvision.activities.main.SettingsFragment.PREF_KEY_SOUND;
 import static name.marinchenko.lorryvision.services.NetScanService.MSG_RETURN_TO_MAIN;
 
+
+
 /**
  * Static methods for creating and showing notifications.
  */

@@ -50,7 +50,11 @@
     <string name="toast_enabling_wifi">Enabling Wi-Fi service…</string>
     <string name="toast_connection_ok">Connection successful</string>
     <string name="toast_connection_failed">Connection failed</string>
-
+    <string name="toast_location_permission_granted">Location permission granted</string>
+    <string name="toast_location_permission_available">Location permission available</string>
+    <string name="toast_location_permission_need">Включение геопозиционирования требуется для получения списка доступных wifi сетей. Такая политика у новых версий Андроида.</string>
+    <string name="toast_location_permission_unavailable">Location permission unavailable</string>
+    <string name="toast_location_permission_denied">Location permission denied</string>
 
     <!-- VideoActivity -->
     <string name="activity_video">Camera translation</string>
@@ -130,9 +134,27 @@
     <string name="pref_group_general">General settings</string>
 
     <string name="pref_group_general_language_title">Language</string>
-    <string name="pref_group_general_language_summary">
+    <string name="pref_group_general_language_summary"></string>
 
-    </string>
+
+    <string name="pref_group_test">Test settings</string>
+  <string name="pref_http_summary">Адрес, порт и путь HTTP потока</string>
+  <string name="pref_http_title">Адрес HTTP потока</string>
+  <string name="pref_http_default_value">http://192.168.1.101:8080/qwe</string>
+  <string name="pref_http_dialog">Ввведите адрес HTTP потока</string>
+
+  <string name="pref_rtsp_summary">Адрес порт и путь RTSP потока</string>
+  <string name="pref_rtsp_title">Адрес RTSP потока</string>
+  <string name="pref_rtsp_default_value">rtsp://192.168.1.101:8554/qaz</string>
+  <string name="pref_rtsp_dialog">Ввведите адрес RTSP потока</string>
+
+    <string name="pref_psw_summary">LorryVision network WiFi password</string>
+    <string name="pref_psw_title">Введите wifi password</string>
+    <string name="pref_psw_default_value">Getnetwork</string>
+    <string name="pref_psw_dialog">enter wifi password</string>
+
+
+
 
 
 
