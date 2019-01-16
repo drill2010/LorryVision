@@ -60,6 +60,7 @@
     <string name="activity_video">Camera translation</string>
     <string name="activity_video_webView_translation">Translation viewer</string>
     <string name="activity_video_button_disconnect">DISCONNECT</string>
+    <string name="activity_video_button_disconnect_land">D\nI\nS\nC\nO\nN\nN\nE\nC\nT</string>
 
 
 
@@ -138,15 +139,15 @@
 
 
     <string name="pref_group_test">Test settings</string>
-  <string name="pref_http_summary">Адрес, порт и путь HTTP потока</string>
-  <string name="pref_http_title">Адрес HTTP потока</string>
-  <string name="pref_http_default_value">http://192.168.1.101:8080/qwe</string>
-  <string name="pref_http_dialog">Ввведите адрес HTTP потока</string>
+    <string name="pref_http_summary">Адрес, порт и путь HTTP потока</string>
+    <string name="pref_http_title">Адрес HTTP потока</string>
+    <string name="pref_http_default_value">http://192.168.1.101:8080/qwe</string>
+    <string name="pref_http_dialog">Ввведите адрес HTTP потока</string>
 
-  <string name="pref_rtsp_summary">Адрес порт и путь RTSP потока</string>
-  <string name="pref_rtsp_title">Адрес RTSP потока</string>
-  <string name="pref_rtsp_default_value">rtsp://192.168.1.101:8554/qaz</string>
-  <string name="pref_rtsp_dialog">Ввведите адрес RTSP потока</string>
+    <string name="pref_rtsp_summary">Адрес порт и путь RTSP потока</string>
+    <string name="pref_rtsp_title">Адрес RTSP потока</string>
+    <string name="pref_rtsp_default_value">rtsp://192.168.1.101:8554/qaz</string>
+    <string name="pref_rtsp_dialog">Ввведите адрес RTSP потока</string>
 
     <string name="pref_psw_summary">LorryVision network WiFi password</string>
     <string name="pref_psw_title">Введите wifi password</string>

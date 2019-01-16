@@ -24,8 +24,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -131,7 +133,11 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity
             // Permission is missing and must be requested.
             requestLocationPermission();
         }
-       
+
+        if (toolbar.getId()==R.id.activity_video_toolbar){
+          //  WebView view = findViewById(R.id.activity_video_webView_translation);
+          //  Log.d("test_VideoActivity", String.format("surface width = %d",view.getWidth()));
+        }
     }
 
 
