@@ -1,64 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="name.marinchenko.lorryvision.activities.main.VideoActivity">
 
-    tools:context="name.marinchenko.lorryvision.activities.main.VideoActivity"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:weightSum="100" >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_video_toolbar"
+        style="@style/Toolbar" />
 
+    <SurfaceView
+        android:id="@+id/surface"
+        android:layout_width="0dip"
+        android:layout_height="0dip"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/activity_video_webView_translation"
+        app:layout_constraintBottom_toTopOf="@+id/activity_video_netList_listView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_video_toolbar" />
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/activity_video_toolbar"
-                style="@style/Toolbar" />
+    <ListView
+        android:id="@+id/activity_video_netList_listView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/activity_video_button_disconnect"
+        app:layout_constraintTop_toBottomOf="@+id/activity_video_webView_translation" />
 
-
-
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="20"
-        android:orientation="horizontal">
-
-
-
-        <SurfaceView
-            android:id="@+id/surface"
-            android:layout_width="0dip"
-            android:layout_height="0dip"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/activity_video_webView_translation"
-            android:layout_gravity="center"
-            app:layout_constraintBottom_toTopOf="@+id/activity_video_button_disconnect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_video_toolbar" />
-
-    </LinearLayout>
-
-
-
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="80"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/activity_video_button_disconnect"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@string/activity_video_button_disconnect"
-            android:textSize="32sp"
-            android:onClick="onButtonExitClick"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </LinearLayout>l
+    <Button
+        android:id="@+id/activity_video_button_disconnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/activity_video_button_disconnect"
+        android:textSize="32sp"
+        android:onClick="onButtonExitClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
