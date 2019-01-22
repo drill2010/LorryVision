@@ -1,10 +1,12 @@
 package name.marinchenko.lorryvision.activities.main;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.os.Messenger;
+import android.preference.PreferenceManager;
 import android.view.SurfaceView;
 import android.view.View;
 
@@ -28,16 +30,12 @@ import static name.marinchenko.lorryvision.services.NetScanService.MSG_RETURN_TO
 public class VideoActivity extends ToolbarAppCompatActivity
                  {
 
-    private SurfaceView mSurface;
-    private String mMediaUrl = "http://192.168.1.100:8080/qwe";
+    private String mMediaUrl = "http://192.168.1.104:8080/qwe";
 
 
-    // media player
-    private LibVLC libvlc;
-    private int mVideoWidth;
-    private int mVideoHeight;
-    private final static int VideoSizeChanged = -1;
-    SurfaceView mSurfaceView;
+    private SurfaceView mVideoSurface = null;
+    private LibVLC mLibVLC = null;
+    private MediaPlayer mMediaPlayer = null;
 
     public static final int JUMP_DELAY = 500;
 
@@ -51,26 +49,13 @@ public class VideoActivity extends ToolbarAppCompatActivity
 
         //initWeb();
 
-        mSurfaceView = (SurfaceView) findViewById(R.id.surface);
+        mVideoSurface = (SurfaceView) findViewById(R.id.surface);
         ArrayList<String> options = new ArrayList<>();
           //  options.add("--aout=none");
             options.add("--swscale-mode=0");
-        LibVLC mLibVLC = new LibVLC(getApplicationContext(), options);
+        mLibVLC = new LibVLC(getApplicationContext(), options);
+        mMediaPlayer =  new MediaPlayer(mLibVLC);
 
-        MediaPlayer mMediaPlayer =  new MediaPlayer(mLibVLC);
-
-        IVLCVout vout = mMediaPlayer.getVLCVout();
-        vout.setVideoView(mSurfaceView);
-        vout.attachViews();
-
-        Media media = new Media(mLibVLC, Uri.parse(mMediaUrl));
-        media.setHWDecoderEnabled(true, false);
-        media.addOption(":network-caching=150");
-        media.addOption(":clock-jitter=0");
-        media.addOption(":clock-synchro=0");
-
-        mMediaPlayer.setMedia(media);
-        mMediaPlayer.play();
 
 
     }
@@ -121,20 +106,40 @@ public class VideoActivity extends ToolbarAppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        mMediaPlayer.release();
+        mLibVLC.release();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        if (prefs.getBoolean(SettingsFragment.PREF_KEY_CURRENT_PROTOCOL,true))
+            mMediaUrl = prefs.getString(SettingsFragment.PREF_KEY_HTTP_STR, getString(R.string.pref_http_default_value));
+        else mMediaUrl = prefs.getString(SettingsFragment.PREF_KEY_RTSP_STR, getString(R.string.pref_rtsp_default_value));
 
+        IVLCVout vout = mMediaPlayer.getVLCVout();
+        vout.setVideoView(mVideoSurface);
+        vout.attachViews();
+
+        Media media = new Media(mLibVLC, Uri.parse(mMediaUrl));
+        media.setHWDecoderEnabled(true, false);
+        media.addOption(":network-caching=50");
+        media.addOption(":clock-jitter=0");
+        media.addOption(":clock-synchro=0");
+
+        mMediaPlayer.setMedia(media);
+        mMediaPlayer.play();
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
+        mMediaPlayer.stop();
+        mMediaPlayer.getVLCVout().detachViews();
+        //mMediaPlayer.getVLCVout().removeCallback(this);
     }
 
 
@@ -211,8 +216,8 @@ public class VideoActivity extends ToolbarAppCompatActivity
     }
 
     public void onButtonExitClick(View view) {
-       // onBackPressed();
-      //  startPlaying();
+        onBackPressed();
+
     }
 
 

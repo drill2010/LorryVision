@@ -24,12 +24,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebView;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 
@@ -37,9 +34,7 @@ import name.marinchenko.lorryvision.R;
 import name.marinchenko.lorryvision.services.NetScanService;
 import name.marinchenko.lorryvision.util.Initializer;
 import name.marinchenko.lorryvision.util.net.WifiAgent;
-import name.marinchenko.lorryvision.util.threading.ToastThread;
 
-import static android.content.Intent.ACTION_USER_PRESENT;
 import static name.marinchenko.lorryvision.services.NetScanService.ACTION_SCAN_SINGLE;
 import static name.marinchenko.lorryvision.services.NetScanService.MSG_RETURN_TO_MAIN;
 
@@ -124,7 +119,7 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity
        Log.d("test_Activity", "Onstart appCompat");
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            // Permission is already available, start camera preview
+            // Permission is already available
             Snackbar.make(toolbar,
                     R.string.toast_location_permission_available,
                     Snackbar.LENGTH_SHORT).show();
@@ -132,11 +127,6 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity
         } else {
             // Permission is missing and must be requested.
             requestLocationPermission();
-        }
-
-        if (toolbar.getId()==R.id.activity_video_toolbar){
-          //  WebView view = findViewById(R.id.activity_video_webView_translation);
-          //  Log.d("test_VideoActivity", String.format("surface width = %d",view.getWidth()));
         }
     }
 
