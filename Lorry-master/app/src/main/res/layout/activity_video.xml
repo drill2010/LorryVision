@@ -10,8 +10,8 @@
         android:id="@+id/activity_video_toolbar"
         style="@style/Toolbar" />
 
-    <WebView
-        android:id="@+id/activity_video_webView_translation"
+    <SurfaceView
+        android:id="@+id/surface"
         android:layout_width="0dip"
         android:layout_height="0dip"
         android:layout_margin="8dp"

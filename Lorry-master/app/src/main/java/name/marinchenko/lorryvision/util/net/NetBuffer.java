@@ -1,19 +1,20 @@
 package name.marinchenko.lorryvision.util.net;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.wifi.ScanResult;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import name.marinchenko.lorryvision.util.debug.NetStore;
-
-import static name.marinchenko.lorryvision.services.ConnectService.STABLE_LEVEL_DB;
-import static name.marinchenko.lorryvision.services.ConnectService.STABLE_DETECT_TIME_S;
+import name.marinchenko.lorryvision.R;
+import name.marinchenko.lorryvision.activities.main.SettingsFragment;
 
 
 /**
@@ -152,16 +153,21 @@ public class NetBuffer {
         //TODO password generator for lorry networks
         //return NetStore.getPassword(context, ssid);
        // return "1301900703";
-        return "Getnetwork";
+       // return "Getnetwork";
+
+        SharedPreferences prefs =
+                PreferenceManager.getDefaultSharedPreferences(context);
+        return  prefs.getString(SettingsFragment.PREF_KEY_LV_PSW, context.getString(R.string.pref_psw_default_value));
+
     }
 
     public static NetType getType(final String name){
-        //Matcher matcher = LORRY.matcher(name);
-        //return matcher.matches() ? NetType.lorryNetwork : NetType.wifiNetwork;
+        Matcher matcher = LORRY.matcher(name);
+        return matcher.matches() ? NetType.lorryNetwork : NetType.wifiNetwork;
        // final String pat = "MANSARDA";
-        final String pat = "Temp_WIFI";
+       // final String pat = "Temp_WIFI";
 
-        return name.equals(pat) ? NetType.lorryNetwork : NetType.wifiNetwork;
+        //return name.equals(pat) ? NetType.lorryNetwork : NetType.wifiNetwork;
     }
 
     private void updateAndRemoveNets(final List<ScanResult> results) {
