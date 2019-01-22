@@ -70,7 +70,6 @@ public class VideoActivity extends ToolbarAppCompatActivity
         media.addOption(":clock-synchro=0");
 
         mMediaPlayer.setMedia(media);
-        // media.
         mMediaPlayer.play();
 
 
