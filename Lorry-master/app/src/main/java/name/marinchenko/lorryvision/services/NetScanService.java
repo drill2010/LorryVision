@@ -258,6 +258,19 @@ public class NetScanService extends Service {
         }
     }
 
+    private boolean alreadyAutoConnected(Net net){
+        // checks if lorry net is already automatically connected by phone, during wifi service enable process
+        final Net connected =  this.netBuffer.getConnectedNet();
+        if (connected !=null) return false;   // this means, that lorry net is already connected by application
+        else{
+            if (WifiAgent.connectedTo(this,
+                    WifiConfig.formatSsid(net.getSsid()))
+                    )
+                return true;
+        }
+        return false;
+    }
+
     private void lorriesNear() {
         if (this.autoConnect) {
             this.netBuffer.setConnectingNet(this.netBuffer.getPrefferedNetSsid(), true);
@@ -267,6 +280,12 @@ public class NetScanService extends Service {
                 this.manualConnectActivated
         );
 
+        if (alreadyAutoConnected(net)){
+            // TODO change 2 following lines to ConnectService. sendConnectionState
+            this.netBuffer.connect(this.autoConnect);
+            sendMsgСonnectEnd(MSG_СONNECT_END_OK);
+            return;
+        }
         if (canConnect(net)) connect(net);
     }
 
