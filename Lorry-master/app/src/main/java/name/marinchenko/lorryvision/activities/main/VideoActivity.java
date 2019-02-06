@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.os.Messenger;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 
@@ -130,6 +131,32 @@ public class VideoActivity extends ToolbarAppCompatActivity
         media.addOption(":clock-synchro=0");
 
         mMediaPlayer.setMedia(media);
+
+        vout.addCallback(new IVLCVout.Callback() {
+            @Override
+            public void onSurfacesCreated(IVLCVout vlcVout) {
+                int sw = getWindow().getDecorView().getWidth();
+                int sh = getWindow().getDecorView().getHeight();
+
+                if (sw * sh == 0) {
+                    Log.e("VLC_size", "Invalid surface size");
+                    return;
+                }
+
+                View bDisconnect = findViewById(R.id.activity_video_button_disconnect);
+                View videoToolbar = findViewById(R.id.activity_video_toolbar);
+                sh = sh-bDisconnect.getHeight()-videoToolbar.getHeight();
+                mMediaPlayer.getVLCVout().setWindowSize(sw, sh);
+                mMediaPlayer.setAspectRatio("16:9");
+                mMediaPlayer.setScale(0f);
+            }
+
+            @Override
+            public void onSurfacesDestroyed(IVLCVout vlcVout) {
+
+            }
+        });
+
         mMediaPlayer.play();
 
     }

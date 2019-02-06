@@ -9,7 +9,6 @@ import android.os.Messenger;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -20,8 +19,6 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,9 +30,7 @@ import name.marinchenko.lorryvision.activities.info.LicenseActivity;
 import name.marinchenko.lorryvision.activities.web.FeedbackActivity;
 import name.marinchenko.lorryvision.services.NetScanService;
 import name.marinchenko.lorryvision.util.Initializer;
-import name.marinchenko.lorryvision.util.debug.LoginDialog;
 import name.marinchenko.lorryvision.util.dialogs.ConnectDialog;
-import name.marinchenko.lorryvision.util.net.Net;
 import name.marinchenko.lorryvision.util.net.NetType;
 import name.marinchenko.lorryvision.util.net.NetView;
 import name.marinchenko.lorryvision.util.net.NetlistAdapter;
@@ -43,7 +38,6 @@ import name.marinchenko.lorryvision.util.threading.ToastThread;
 
 import static name.marinchenko.lorryvision.services.ConnectService.ACTION_CONNECT_MANUAL;
 import static name.marinchenko.lorryvision.services.ConnectService.EXTRA_NET_SSID;
-import static name.marinchenko.lorryvision.services.NetScanService.ACTION_SCAN_SINGLE;
 import static name.marinchenko.lorryvision.services.NetScanService.MSG_LORRIES_DETECTED;
 import static name.marinchenko.lorryvision.services.NetScanService.MSG_RETURN_TO_MAIN;
 import static name.marinchenko.lorryvision.services.NetScanService.MSG_SCANS;
@@ -195,7 +189,7 @@ public class MainActivity
 
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-        final LoginDialog dialog = new LoginDialog();
+      /*  final LoginDialog dialog = new LoginDialog();
         final Bundle bundle = new Bundle();
 
         final String id = ((Net) adapterView.getItemAtPosition(i)).getSsid();
@@ -203,7 +197,7 @@ public class MainActivity
         bundle.putString(EXTRA_NET_SSID, id);
         dialog.setArguments(bundle);
         dialog.show(getFragmentManager(), "login");
-
+        */
         return true;
     }
 
