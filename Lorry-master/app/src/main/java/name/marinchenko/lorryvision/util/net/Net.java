@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 
+import static name.marinchenko.lorryvision.services.ConnectService.STABLE_LEVEL_DB;
+
 /**
  * Net implementation.
  */
@@ -67,7 +69,10 @@ public class Net extends NetConfig
     public boolean getAutoConnect() { return this.autoConnect; }
 
     public int getLastTimeMeanLevel(final int sec) {
-        if (this.level.size() <= sec) return -100;
+        // ToDo add check of Net.getDetectTime(), to prevent disconnect if detect time is lover than STABLE_CONNECT_TIME_S
+
+      //  if (this.level.size() <= sec) return -100;
+        if (this.level.size() <= sec) return this.level.size() - 1;
         else {
             int sum = 0;
             for (int i = this.level.size() - 1; i > this.level.size() - sec - 1; i--) {

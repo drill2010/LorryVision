@@ -67,7 +67,7 @@
         android:key="pref_key_group_notifications">
         <SwitchPreference
             android:title="Выбор протокола"
-            android:key="pref_key_protocol"
+            android:key="pref_key_PROTOCOL"
             android:switchTextOn="HTTP"
             android:summaryOn="HTTP"
             android:summaryOff="RTSP"
