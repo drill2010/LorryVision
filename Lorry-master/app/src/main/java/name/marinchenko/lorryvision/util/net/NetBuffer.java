@@ -77,7 +77,7 @@ public class NetBuffer {
         }
     }
 
-    public void detach() {  
+    public void detach() {
         for (Net net : this.lorries) {
            //TODO сделать так, чтобы сети не добавлялись заново в массив lorries при переприсоединении. Тогда функция детач будет работать как задумана.
            // TODO либо сделать поиск по массиву PreviousLorries?
