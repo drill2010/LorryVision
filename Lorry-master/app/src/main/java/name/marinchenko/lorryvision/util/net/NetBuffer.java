@@ -79,7 +79,10 @@ public class NetBuffer {
 
     public void detach() {
         for (Net net : this.lorries) {
-            if (net.getSsid().equals(this.connectedNetSsid) && net.wasConnected()) {
+           //TODO сделать так, чтобы сети не добавлялись заново в массив lorries при переприсоединении. Тогда функция детач будет работать как задумана.
+           // TODO либо сделать поиск по массиву PreviousLorries?
+          //  if (net.getSsid().equals(this.connectedNetSsid) && net.wasConnected()) {
+            if (net.getSsid().equals(this.connectedNetSsid) ) {
                 net.detach();
                 net.setAutoConnect(false);
                 this.connectingNetSsidAuto = null;

@@ -16,6 +16,7 @@ public class NetConfig {
     protected final String caps;
     protected final String password;
 
+
     public NetConfig(final String ssid,
                      final String bssid,
                      final String caps,

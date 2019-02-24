@@ -116,9 +116,12 @@ public class VideoActivity extends ToolbarAppCompatActivity
         super.onStart();
         SharedPreferences prefs =
                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
         if (prefs.getBoolean(SettingsFragment.PREF_KEY_CURRENT_PROTOCOL,true))
             mMediaUrl = prefs.getString(SettingsFragment.PREF_KEY_HTTP_STR, getString(R.string.pref_http_default_value));
         else mMediaUrl = prefs.getString(SettingsFragment.PREF_KEY_RTSP_STR, getString(R.string.pref_rtsp_default_value));
+
+     //   mMediaUrl = "rtsp://user:user@192.168.1.199:554/0";
 
         IVLCVout vout = mMediaPlayer.getVLCVout();
         vout.setVideoView(mVideoSurface);
@@ -143,9 +146,10 @@ public class VideoActivity extends ToolbarAppCompatActivity
                     return;
                 }
 
-                View bDisconnect = findViewById(R.id.activity_video_button_disconnect);
-                View videoToolbar = findViewById(R.id.activity_video_toolbar);
-                sh = sh-bDisconnect.getHeight()-videoToolbar.getHeight();
+              //  View bDisconnect = findViewById(R.id.activity_video_button_disconnect);
+              //  View videoToolbar = findViewById(R.id.activity_video_toolbar);
+               // sh = sh-bDisconnect.getHeight()-videoToolbar.getHeight();
+              //  sw = sw - bDisconnect.getWidth();
                 mMediaPlayer.getVLCVout().setWindowSize(sw, sh);
                 mMediaPlayer.setAspectRatio("16:9");
                 mMediaPlayer.setScale(0f);

@@ -40,6 +40,8 @@ public class ConnectService extends Service {
     public final static int STABLE_CONNECT_TIME_S = 5;
     public final static int STABLE_DETECT_TIME_S = 2;
     public final static int STABLE_LEVEL_DB = -80;
+  //  public final static int STABLE_LEVEL_DB = -85;
+   // public final static int STABLE_LEVEL_DB = -67;  // for test purposes
 
     private final static int CNT_CHECK_CONNECTED = 20;
     private final static int PERIOD_CHECK_CONNECTED_MS = 500;

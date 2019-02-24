@@ -9,6 +9,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.util.List;
 import java.util.Timer;
@@ -229,6 +230,9 @@ public class NetScanService extends Service {
         if (connected != null
                 && connected.getLastTimeMeanLevel(STABLE_CONNECT_TIME_S)
                 < STABLE_LEVEL_DB) {
+        // ToDo add check of Net.getDetectTime(), to prevent disconnect if detect time is lover than STABLE_CONNECT_TIME_S
+         //   Log.d("Fast_disconnect",
+         //           String.format("%d", connected.getLastTimeMeanLevel(STABLE_CONNECT_TIME_S)));
             startDisconnectService();
             sendMsgDisconnected();
             Notificator.jumpToMainActivity(this);
